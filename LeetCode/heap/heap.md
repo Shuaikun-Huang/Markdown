@@ -1,7 +1,7 @@
 # **前言**
 堆（二叉堆），一种**动态**的树型结构，一种除了底层外，**完全被填满**的**二叉树**结构。因此，堆一般是基于**数组**去实现的，它不会出现数组中很多空缺的现象，而造成空间浪费。如下是一个完全二叉树：  
 <center>
-    <img src="https://raw.githubusercontent.com/Shuaikun-Huang/Markdown/master/Tinyhttp/request.png" />  
+    <img src="https://raw.githubusercontent.com/Shuaikun-Huang/Markdown/master/LeetCode/heap/heap-tree.png" />  
     <br>
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
@@ -19,7 +19,7 @@
 - 任一节点要么比其子树节点大，要么小；
 - 根据上面性质，堆被分为**最大堆**（大顶堆）和**最小堆**（小顶堆）。  
 
-堆的主要用途:
+堆的**主要用途**:
 - 构建优先队列；
 - 支持堆排序；
 - 快速找出集合中的最大值或最小值。  
@@ -66,15 +66,17 @@ void BuildHeap(vector<int> &A){
 该算法的时间复杂度很容易通过，循环n次，每次调用MaxHeap耗费O(lgn)，从而得出```T(n)=O(nlgn)```，虽然正确，但是该算法上界还可以继续紧确。  
 一个含n个元素的堆高(最底层高为0)为```floor(lgn)```，而该堆最多包含```ceil(n/2^(h+1))```个**高度为h的节点**。而一个高度为h的节点运行MaxHeap的时间复杂度为O(h)，所以可以将BuildHeap的总代价表示为：
 
- $$\sum\limits_{h = 0}^{\lfloor lgn \rfloor} {\lceil \frac{n}{2^{h+1}} \rceil}{O(h)} = O(n\sum\limits_{h = 0}^{\lfloor lgn \rfloor} {\frac {h}{2^{h}}}) =  O(n\sum\limits_{h = 0}^{\infty} {\frac {h}{2^{h}}}) = O(n)$$  
+<center>
+    <img src="https://raw.githubusercontent.com/Shuaikun-Huang/Markdown/master/LeetCode/heap/heap-latex.png" />  
+</center> 
 
- # **构建一个优先队列**
- **1.什么是优先队列**  
- 优先队列是一种特殊的队列，它不按先进先出的原则，而是以**优先度**来弹出元素。它本质是一种用来**维护**由一组元素构成的集合S的数据结构，其中每个元素都有一个相关的值，称为**关键字**。和堆一样，优先队列也分为最大优先队列和最小优先队列。  
+# **构建一个优先队列**
+**1.什么是优先队列**  
+优先队列是一种特殊的队列，它不按先进先出的原则，而是以**优先度**来弹出元素。它本质是一种用来**维护**由一组元素构成的集合S的数据结构，其中每个元素都有一个相关的值，称为**关键字**。和堆一样，优先队列也分为最大优先队列和最小优先队列。  
 
- **2.优先队列的相关操作**  
- **HeapTop**: 返回并删除掉当前堆顶，时间复杂度为O(lgn)。
- ```
+**2.优先队列的相关操作**  
+**HeapTop**: 返回并删除掉当前堆顶，时间复杂度为O(lgn)。
+```
 int HeapTop(vector<int> &A){
     if(A.size() < 1) exit(0); //没有元素    
     int max = A[0];
@@ -85,19 +87,19 @@ int HeapTop(vector<int> &A){
     MaxHeap(A, 0);
     return max;
 }
- ```
- **HeapInsert**：插入一个元素到当前堆中，时间复杂度为O(lgn)。
- ```
+```
+**HeapInsert**：插入一个元素到当前堆中，时间复杂度为O(lgn)。
+```
 void HeapInsert(vector<int> &A, k){
     A.push_back(A[0]);
     A[0] = k;
     //维护最大堆性质
     MaxHeap(A, 0);
 }
- ```  
+```  
 
- # STL中堆与优先队列的实现
- **1.堆**  
+# STL中堆与优先队列的实现
+**1.堆**  
 heap不属于STL中的容器组件，它是以算法的形式呈现，“默默扮演着幕后英雄”。heap默认是最大堆排序。使用方法如下：
 ```
 vector<int> ivec{0, 1, 2};
