@@ -1,7 +1,7 @@
 # **前言**
 **栈**（stack）又称为堆栈，其作为一种数据结构，是限定**只能在表尾进行插入和删除操作的线性表**。所谓线性表是指在内存上，由零个或多个元素通过**顺序存储**或**链式存储**的有限序列，这些元素前后对应（前驱后继关系），称为**前驱元素**与**后继元素**。  
 
-栈按照**先进后出**的原则存储数据，将允许插入与删除的一段称为栈顶（top），另一端称为栈底（bottom）。所以先进入的数据被压入栈底，最后的进入的数据在栈顶，需要读数据时，从**栈顶**开始弹出数据。
+栈按照**先进后出**的原则存储数据，将允许插入与删除的一端称为栈顶（top），另一端称为栈底（bottom）。所以先进入的数据被压入栈底，最后进入的数据在栈顶，需要读数据时，从**栈顶**开始弹出数据。
 
 栈结构的基本操作：
 - ```StackPush```：进栈操作，时间复杂度O(1)；
@@ -10,7 +10,7 @@
 # **栈的顺序存储结构**  
 所谓顺序存储结构，即指是在**一段连续地址上开辟的内存**，因此在初始化栈时需要分配好开辟的空间大小，对应的这种栈在扩容时会比较麻烦，但它的优势在于存取时定位很方便，所以在栈大小可定的条件下，最好使用顺序结构存储。如下是一个顺序存储结构栈的示意图：  
 <center>
-    <img src="https://raw.githubusercontent.com/Shuaikun-Huang/Markdown/master/LeetCode/stack/stack1.png" />  
+    <img src="./pic/stack1.png" />  
     <br>
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
@@ -56,7 +56,7 @@ int StackPop(stack *sta){
 # **栈的链式存储结构**  
 所谓链式存储结构，即指用一组**任意的**（可连续可不连续）存储单元，通过**指针**指向，存储元素。因此链式栈会增加一些指针内存开销，但对于栈的长度是无限制的，所以对于栈中元素变化不可预测时，使用链式存储结构更好。如下是一个链式存储结构栈的示意图：  
 <center>
-    <img src="https://raw.githubusercontent.com/Shuaikun-Huang/Markdown/master/LeetCode/stack/stack2.png" />  
+    <img src="./pic/stack2.png" />  
     <br>
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
@@ -122,7 +122,7 @@ int StackPop(linkStack *sta) {
 # **STL中栈的实现**
 STL中，stack是一种关联容器，是通过简单地**修饰线性类deque（两端皆可操作，且无容量概念的容器）的接口而获得的另一种“容器类”**，往往被归结为配接器（adapter）而不是容器（container）。stack除了最顶端外，没有任何其他方法可以存取stack的其他元素，因此**stack不能遍历，所以它没有迭代器**。另外底层容器除了deque外还可采用list。  
 
-STL中栈有以下几个成员函数，具体应用可以回复关键字“栈”查看。：  
+STL中栈有以下几个成员函数，具体应用可以【关注公众号DoCode，每日一道LeetCode，将零碎时间利用起来】回复关键字“栈”查看。  
 - empty() 堆栈为空则返回真
 - pop() 移除栈顶元素
 - push() 在栈顶增加元素

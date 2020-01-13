@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Register</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form action="register.cgi" method="POST">
+            ID: <input type="text" name="ID" value="" size="10" maxlength="8">
+            <br>
+            <br>
+            PassWord: <input type="password" value="" name="PassWord" size="10">
+            <br>
+            <br>       
+            Hobby: <input type="checkbox" name="PE" checked="checked"> PE <input type="checkbox" name="Music"> Sing
+            <br>
+            <br>
+            Sex: <input type="radio" name="sex" checked="checked">male<input type="radio" name="sex">female
+            <br>
+            <br>
+            Introduce: <textarea cols="35" rows="1" name="Introduce"></textarea>
+            <br>
+            <br>
+            Address: 
+            <select name="Address">
+                <option value="sichuan">SiChuan</option>
+                <option value="beijing">BeiJing</option>
+                <option value="shanghai">ShangHai</option>
+            <br>
+            <br>
+            <input type="submit" value="submit">
+            <input type="reset" value="reset">
+        </form>
+    </body>
+</html>

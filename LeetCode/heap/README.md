@@ -1,7 +1,7 @@
 # **前言**
 堆（二叉堆），一种**动态**的树型结构，一种除了底层外，**完全被填满**的**二叉树**结构。因此，堆一般是基于**数组**去实现的，它不会出现数组中很多空缺的现象，而造成空间浪费。如下是一个完全二叉树：  
 <center>
-    <img src="https://raw.githubusercontent.com/Shuaikun-Huang/Markdown/master/LeetCode/heap/heap-tree.png" />  
+    <img src="./pic/heap-tree.png" />  
     <br>
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
@@ -67,7 +67,7 @@ void BuildHeap(vector<int> &A){
 一个含n个元素的堆高(最底层高为0)为```floor(lgn)```，而该堆最多包含```ceil(n/2^(h+1))```个**高度为h的节点**。而一个高度为h的节点运行MaxHeap的时间复杂度为O(h)，所以可以将BuildHeap的总代价表示为：
 
 <center>
-    <img src="https://raw.githubusercontent.com/Shuaikun-Huang/Markdown/master/LeetCode/heap/heap-latex.png" />  
+    <img src="./pic/heap-latex.png" />  
 </center> 
 
 # **构建一个优先队列**
